@@ -56,15 +56,15 @@ cd ../..
 pip install open3d
 ```
 
-### 🔹 Ensuring Compatibility: CUDA, Torch, and ABI Matching 🔹
+### Ensuring Compatibility: CUDA, Torch, and ABI Matching
 
 When installing `flash_attn`, **all components must match**, including:
-- ✅ **CUDA Version**
-- ✅ **Torch Version**
-- ✅ **C++ ABI Compatibility** (`cxx11abiFALSE` vs. `cxx11abiTRUE`)
+- CUDA Version
+- Torch Version
+- C++ ABI Compatibility (`cxx11abiFALSE` vs. `cxx11abiTRUE`)
 
-Mismatches can lead to **undefined symbol errors** or runtime crashes.  
-Always verify that the installed `flash_attn` version aligns with your **CUDA, PyTorch, and ABI settings**.
+Mismatches can lead to undefined symbol errors or runtime crashes.  
+Always verify that the installed `flash_attn` version aligns with your CUDA, PyTorch, and ABI settings.
 
 To avoid waiting, you can try
 ```
