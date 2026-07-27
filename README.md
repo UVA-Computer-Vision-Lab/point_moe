@@ -80,9 +80,9 @@ https://huggingface.co/Pointcept
 
 Follow their instructions for each dataset to place the data under the `data/` directory.
 
-**Training datasets:** ScanNet, Structured3D, Matterport3D, nuScenes, SemanticKITTI
+**Training datasets:** ScanNet, Structured3D, S3DIS, nuScenes, SemanticKITTI
 
-**Zero-shot evaluation datasets:** S3DIS, Waymo
+**Zero-shot evaluation datasets:** Matterport3D, Waymo
 
 Train Point-MoE
 ----------------------
