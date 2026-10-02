@@ -758,6 +758,13 @@ class PointTransformerMoE(PointModule):
         upcast_attention=False,
         upcast_softmax=False,
         cls_mode=False,
+        # PDNorm parameters (kept for config compatibility; PDNorm is not supported)
+        pdnorm_bn=False,
+        pdnorm_ln=False,
+        pdnorm_decouple=True,
+        pdnorm_adaptive=False,
+        pdnorm_affine=True,
+        pdnorm_conditions=("ScanNet", "S3DIS", "Structured3D"),
         # MoE parameters
         use_moe=False,
         use_moe_mlp=True,  # Whether to use MoE in Block MLP
@@ -826,6 +833,8 @@ class PointTransformerMoE(PointModule):
         assert self.cls_mode or self.num_stages == len(dec_patch_size) + 1
 
         # norm layers
+        if pdnorm_bn or pdnorm_ln:
+            raise NotImplementedError("PDNorm is not supported in this release.")
         bn_layer = partial(nn.BatchNorm1d, eps=1e-3, momentum=0.01)
 
         if self.use_RMS:

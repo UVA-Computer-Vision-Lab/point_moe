@@ -1,8 +1,7 @@
 _base_ = ["../_base_/default_runtime.py"]
 
 is_train = True
-# batch_size = 16  # bs: total bs in all gpus
-batch_size = 2
+batch_size = 16  # bs: total bs in all gpus
 num_worker = 8
 mix_prob = 0
 empty_cache = True
@@ -92,7 +91,7 @@ model = dict(
         (0, 1, 2, 3, 4, 5, 6, 7, 8, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 33, 34, 35),
         (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 20, 22, 24, 25, 27, 34),
         (0, 1, 4, 5, 6, 7, 8, 10, 19, 29, 30, 31, 32),
-        (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 20, 22, 24, 25, 27, 19, 36),
+        (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 20, 22, 24, 25, 27, 36, 19),
     ),
     # fmt: on
     backbone_mode=False,

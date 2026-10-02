@@ -100,10 +100,22 @@ sh scripts/test.sh -n results/indoor -g 1
 
 > **Note:** Training was done on 4 A100 GPUs for the indoor-only model and 8 A100 GPUs for the indoor+outdoor model.
 
-TODO
-----
+Pretrained Checkpoints
+----------------------
 
-- [ ] Release pretrained checkpoints
+Checkpoints and their configs are available on [Hugging Face](https://huggingface.co/uva-cv-lab/Point_MoE) and [Google Drive](https://drive.google.com/drive/folders/1myrNSuVBmSfI2xXv69RMXrWjE-W9DEyQ?usp=drive_link).
+
+| Checkpoint | Config | Training data |
+|---|---|---|
+| `pointmoe_l_indoor_last.pth` | `pointmoe_l_indoor_last.py` | ScanNet, Structured3D, S3DIS (Area 1/2/3/4/6) |
+| `pointmoe_l_indoor_outdoor_last.pth` | `pointmoe_l_indoor_outdoor_last.py` | ScanNet, Structured3D, S3DIS (Area 1/2/3/4/6), SemanticKITTI, nuScenes |
+
+To evaluate a checkpoint:
+
+```
+python tools/train.py --config-file checkpoints/pointmoe_l_indoor_last.py --num-gpus 4 \
+  --options weight=checkpoints/pointmoe_l_indoor_last.pth save_path=exp/pointmoe_l_indoor
+```
 
 Acknowledgements
 ----------------

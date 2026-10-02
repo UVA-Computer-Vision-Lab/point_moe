@@ -11,7 +11,7 @@ project_name = "PointMoE-v0m0"
 experiment_name = "multiple-dataset-training-8-3"
 batch_from_single_dataset = False
 clip_grad = 1.0
-eval_epoch = 120
+eval_epoch = 240
 # trainer
 train = dict(
     type="MultiDatasetTrainer",
@@ -57,7 +57,7 @@ model = dict(
         use_ln=False,
         enable_enc=True,
         enable_dec=True,
-        aux_loss_alpha=0.001,
+        aux_loss_alpha=0,
         n_intermediate_size=2,
         # Activation function parameters
         act_fn="relu",  # Options: "relu", "gelu", "silu", "leaky_relu", "elu", "mish"
@@ -112,7 +112,7 @@ model = dict(
         (0, 1, 2, 3, 4, 5, 6, 7, 8, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 33, 34, 35),
         (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 20, 22, 24, 25, 27, 34),
         (0, 1, 4, 5, 6, 7, 8, 10, 19, 29, 30, 31, 32),
-        (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 20, 22, 24, 25, 27, 19, 36),
+        (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 20, 22, 24, 25, 27, 36, 19),
         # SemanticKITTI (starts at index 37)
         tuple(range(37, 37 + 19)),
 
@@ -127,7 +127,7 @@ model = dict(
 )
 
 # scheduler settings
-epoch = 120
+epoch = 240
 optimizer = dict(type="AdamW", lr=0.005, weight_decay=0.05)
 
 scheduler = dict(
